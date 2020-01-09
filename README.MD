@@ -7,7 +7,7 @@ You can read and control a Marantz reciever, this is working in combination with
 
 ### Manual
 - Copy directory `marantztcp` to your `<config dir>/custom_components` directory.
-- Copy directory `marantz_receiver` to your `<config dir>/deps/lib/python3.7/site-packages` directory.
+- Copy directory `marantz_receiver` to your `<config dir>/deps/lib/python3.7/site-packages` or '<config dir>/lib/python3.7/site-packages/' directory.
 - Configure with config below.
 - Restart Home-Assistant.
 
