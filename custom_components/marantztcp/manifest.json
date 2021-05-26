@@ -1,7 +1,7 @@
 {
   "domain": "marantz",
   "name": "Marantz",
-  "documentation": "https://github.com/grinco/sr7400-home-assistant",
+  "documentation": "https://github.com/Imperial-Guard/Marantz_TCP",
   "dependencies": [],
   "codeowners": [],
   "requirements": [],
