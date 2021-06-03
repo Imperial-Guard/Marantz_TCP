@@ -1,5 +1,5 @@
 {
-  "domain": "marantz",
+  "domain": "marantztcp",
   "name": "Marantz",
   "documentation": "https://github.com/Imperial-Guard/Marantz_TCP",
   "dependencies": [],
