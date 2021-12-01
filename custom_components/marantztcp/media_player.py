@@ -1,20 +1,23 @@
 """
 Support for interfacing with Marantz receivers through Ethernet Serial Server.
+
 """
 import logging
 
 import voluptuous as vol
 
 from homeassistant.components.media_player import (
-    MediaPlayerDevice,
-    PLATFORM_SCHEMA)
+    MediaPlayerEntity,
+    PLATFORM_SCHEMA
+    )
 from homeassistant.components.media_player.const import (
     SUPPORT_VOLUME_SET,
     SUPPORT_VOLUME_MUTE, SUPPORT_TURN_ON, SUPPORT_TURN_OFF,
     SUPPORT_VOLUME_STEP, SUPPORT_SELECT_SOURCE, SUPPORT_SELECT_SOUND_MODE
-)
+    )
 from homeassistant.const import (
-    CONF_NAME, STATE_OFF, STATE_ON, STATE_UNKNOWN)
+    CONF_NAME, STATE_OFF, STATE_ON, STATE_UNKNOWN
+    )
 import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
@@ -59,7 +62,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     )], True)
 
 
-class Marantz(MediaPlayerDevice):
+class Marantz(MediaPlayerEntity):
     """Representation of a Marantz Receiver."""
 
     def __init__(self, name, marantz_receiver, min_volume, max_volume,
