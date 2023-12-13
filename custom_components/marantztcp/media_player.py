@@ -37,7 +37,6 @@ CONF_MIN_VOLUME = 'min_volume'
 CONF_MAX_VOLUME = 'max_volume'
 CONF_SOURCE_DICT = 'sources'
 CONF_SOUNDMODE_DICT = 'soundmode'
-CONF_UNIQUE_ID = 'unique_id'
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_HOST): cv.string,
@@ -47,7 +46,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_MAX_VOLUME, default=DEFAULT_MAX_VOLUME): int,
     vol.Optional(CONF_SOURCE_DICT, default={}): {cv.string: cv.string},
     vol.Optional(CONF_SOUNDMODE_DICT, default={}): {cv.string: cv.string},
-    vol.Optional(CONF_UNIQUE_ID, default=''): cv.string,
 })
 
 
@@ -60,8 +58,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
         config.get(CONF_MIN_VOLUME),
         config.get(CONF_MAX_VOLUME),
         config.get(CONF_SOURCE_DICT),
-        config.get(CONF_SOUNDMODE_DICT),
-	config.get(CONF_UNIQUE_ID)
+        config.get(CONF_SOUNDMODE_DICT)
     )], True)
 
 
@@ -69,7 +66,7 @@ class Marantz(MediaPlayerEntity):
     """Representation of a Marantz Receiver."""
 
     def __init__(self, name, marantz_receiver, min_volume, max_volume,
-                 source_dict, sound_mode_dict, unique_id)):
+                 source_dict, sound_mode_dict):
         """Initialize the Marantz Receiver device."""
         self._name = name
         self._marantz_receiver = marantz_receiver
@@ -79,7 +76,6 @@ class Marantz(MediaPlayerEntity):
         self._sound_mode_dict = sound_mode_dict
         self._reverse_mapping = {value: key for key, value in
                                  self._source_dict.items()}
-	self._unique_id = unique_id
         self._reverse_mapping_sound_mode = {value: "0{}".format(key) for key, value in
                                  self._sound_mode_dict.items()}
 
@@ -220,8 +216,5 @@ class Marantz(MediaPlayerEntity):
     def sound_mode_list(self):
         """List of available sound_modes."""
         return sorted(list(self._reverse_mapping_sound_mode.keys()))
-	    
-    @property
-    def unique_id(self):
-        return self._unique_id 
+             
                                                       
