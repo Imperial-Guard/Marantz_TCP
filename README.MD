@@ -30,7 +30,6 @@ media_player:
       '1' : 'Stereo'
       'T' : 'Source Direct'
       'U' : 'Pure Direct'
-    unique_id: '12345'
 ```
 
 Configuration variables:
@@ -41,4 +40,3 @@ Configuration variables:
 - **name** (*Optional*): Name of the device. (default = 'Marantz Receiver')
 - **min_volume** (*Optional*): Minimal volume of the reciever, will also appear on the volume slider from 0-100% (default = '-71')
 - **max_volume** (*Optional*): Maximal volume of the reciever, will also appear on the volume slider from 0-100%  (default = '-1')
-- **unique_id** (*Optional*): Defines a unique_id used by HA to identify this specific unit
